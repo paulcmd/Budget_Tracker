@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "./components/Header";
 import { Balance } from "./components/Balance";
 import { IncomeExpenses } from "./components/IncomeExpenses";
@@ -8,13 +8,24 @@ import { AddTransaction } from "./components/AddTransaction";
 import "./App.css";
 
 function App() {
-  const initialState = [];
+  //const initialState = [];
+
+  // retrieve all previous expenses from local storage
+  const initialState = localStorage.getItem("stored-expenses")
+      ? JSON.parse(localStorage.getItem("stored-expenses"))
+      : [];
+
 
   const [transactions, setTransactions] = useState(initialState);
 
+  // store expenses in LocalStorage
+  useEffect(() => {
+    localStorage.setItem("stored-expenses", JSON.stringify(transactions));
+  }, [transactions]);
 
-  const addTransaction = (ourTransaction) => {
-    setTransactions([...transactions, ourTransaction]);
+
+  const addTransaction = (newTransaction) => {
+    setTransactions([...transactions, newTransaction]);
   };
 
   const deleteTransaction = (id) => {
