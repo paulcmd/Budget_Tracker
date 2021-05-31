@@ -26,7 +26,7 @@ None is required.
 ---
 
 ## Usage:
-To use the application, go to __[this link](https://5f17492f6d310b8a847513c7--goofy-noyce-14c125.netlify.app/)__.
+To use the application, go to __[this link](https://pmw-budget-tracker.netlify.app/)__.
 
 ![img-1](readme-imgs/default.png)
 
