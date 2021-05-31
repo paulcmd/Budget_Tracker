@@ -29,8 +29,7 @@ function App() {
   };
 
   const deleteTransaction = (id) => {
-    setTransactions(
-      transactions.filter((transaction) => transaction.id !== id)
+    setTransactions(transactions.filter((transaction) => transaction.id !== id)
     );
   };
 

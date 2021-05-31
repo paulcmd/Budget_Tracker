@@ -16,20 +16,32 @@ export const AddTransaction = ({addTransaction}) => {
      addTransaction(newTransaction);
   }
 
+  const handleTextChange = (e) => setText(e.target.value)
+
+  const handleAmountChange = (e) => setAmount(e.target.value)
+
   return (
     <>
       <h3>Add new transaction</h3>
       <form onSubmit={onSubmit}>
         <div className="form-control">
           <label htmlFor="text">Text</label>
-          <input type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Enter text..." />
+
+          <input type="text"
+                 value={text}
+                 onChange={handleTextChange}
+                 placeholder="Enter text..." />
         </div>
         <div className="form-control">
-          <label htmlFor="amount"
-            >Amount <br />
-            (negative - expense, positive - income)</label
-          >
-          <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount..." />
+          <label htmlFor="amount">
+            Amount <br />
+            (negative - expense, positive - income)</label>
+
+          <input
+              type="number"
+              value={amount}
+              onChange={handleAmountChange}
+              placeholder="Enter amount..." />
         </div>
         <button className="btn">Add transaction</button>
       </form>
